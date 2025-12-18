@@ -46,10 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
             duration: 1000,
             delay: 100,
             easing: 'ease-in-out',
-            reset: false // Importante: false para que no parpadee al subir
+            reset: false
         });
 
-        // Aplicar animaciones
         sr.reveal('.sr-item', { interval: 150 });
         sr.reveal('.section-title', { delay: 50 });
         sr.reveal('.hero-content', { delay: 200, distance: '60px' });
@@ -65,8 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 loop: true,
                 speed: 600,
                 grabCursor: true,
-
-                // [CRÍTICO] Esto asegura que funcione aunque esté dentro de pestañas o animaciones
                 observer: true,
                 observeParents: true,
 
@@ -80,13 +77,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     prevEl: '.swiper-button-prev',
                 },
 
-                // [CONFIGURACIÓN RESPONSIVA] Aquí está la solución para celulares
+                // Configuración Adaptativa
                 breakpoints: {
-                    // Celulares (menos de 768px)
+                    // Celulares
                     0: {
-                        slidesPerView: 1.15, // Muestra un pedacito de la siguiente tarjeta
-                        spaceBetween: 15,    // Menos espacio para que no se vea vacío
-                        centeredSlides: true // Centra la tarjeta activa perfectamente
+                        slidesPerView: 1.15,
+                        spaceBetween: 15,
+                        centeredSlides: true
                     },
                     // Tablets
                     768: {
@@ -103,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }
-    }, 100); // Pequeño retraso para asegurar carga del DOM
+    }, 100);
 
     /* ===========================================================
        4. IMAGE CYCLER (Rotación automática de fotos del producto)
@@ -128,7 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
             // Obtener intervalo personalizado del HTML o usar 3 segs por defecto
             const intervalTime = parseInt(cycler.getAttribute('data-cycle-interval')) || 3000;
 
-            // Encontrar índice actual
             images.forEach((img, i) => {
                 if (img.classList.contains('active-image')) currentIndex = i;
             });

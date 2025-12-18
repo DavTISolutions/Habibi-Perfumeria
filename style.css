@@ -1,33 +1,18 @@
 /* =========================================
    HABIBI PERFUMERIA - ESTILOS COMPLETOS
    Tema: Lujo (Dorado & Azul Profundo)
-   Corrección: Mobile Layout & Equal Heights
+   Corrección: Mobile Layout & Equal Heights & Images
    ========================================= */
 
 /* === VARIABLES DE COLOR === */
 :root {
-    /* Dorado exacto del logo */
     --primary-color: #CCA861;
-
-    /* Un dorado más claro para efectos hover */
     --secondary-color: #E6D1A3;
-
-    /* Azul oscuro profundo (casi negro) del fondo del logo */
     --background-color: #041324;
-
-    /* Un azul marino ligeramente más claro para tarjetas y secciones */
     --surface-color: #0F1829;
-
-    /* Texto blanco para máximo contraste */
     --text-color: #FFFFFF;
-
-    /* Bordes en dorado para un toque premium */
     --border-color: #CCA861;
-
-    /* Botón de WhatsApp */
     --whatsapp-color: #25d366;
-
-    /* Velocidad de animaciones */
     --transition-speed: 0.3s;
 }
 
@@ -119,6 +104,8 @@ ul {
 .btn-secondary {
     background-color: transparent;
     color: var(--primary-color);
+    /* Alineación al fondo de la card */
+    margin-top: auto;
 }
 
 .btn-secondary:hover {
@@ -143,7 +130,7 @@ ul {
     transform: translateY(-3px);
 }
 
-/* === ANIMACIONES (Corrección de pantalla blanca) === */
+/* === ANIMACIONES === */
 .sr-item {
     visibility: visible;
 }
@@ -151,7 +138,6 @@ ul {
 /* === HEADER Y NAVBAR === */
 .header {
     background-color: var(--background-color);
-    /* Mismo color que el fondo del logo */
     position: fixed;
     width: 100%;
     top: 0;
@@ -169,7 +155,7 @@ ul {
     padding: 0 30px;
 }
 
-/* --- Logo Compuesto --- */
+/* --- Logo --- */
 .logo {
     display: flex;
     align-items: center;
@@ -196,7 +182,7 @@ ul {
     font-family: serif;
 }
 
-/* --- Enlaces de Navegación --- */
+/* --- Navegación --- */
 .nav-links a {
     margin-left: 25px;
     font-size: 0.95em;
@@ -286,10 +272,10 @@ ul {
     position: relative;
 }
 
-/* --- Corrección de Alturas Iguales (Flexbox Magic) --- */
+/* --- Estructura Flexible para Alturas Iguales --- */
 .swiper-wrapper {
     align-items: stretch;
-    /* Estira todas las tarjetas a la misma altura */
+    /* Clave: estira las slides */
 }
 
 .swiper-slide {
@@ -306,12 +292,11 @@ ul {
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 
-    /* Configuración para ocupar todo el espacio y alinear botones */
+    /* Ocupar toda la altura y distribuir contenido */
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
@@ -330,11 +315,11 @@ ul {
     border-radius: 4px;
     overflow: hidden;
     background-color: #000;
+    /* Fondo oscuro detrás de la imagen */
     flex-shrink: 0;
-    /* Evita que la imagen se aplaste */
 }
 
-/* --- Image Cycler --- */
+/* --- Image Cycler & Ajuste de Imagen --- */
 .image-cycler {
     width: 100%;
     height: 100%;
@@ -344,7 +329,8 @@ ul {
 .image-cycler img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* Muestra la imagen completa sin recortar */
+    object-fit: contain;
     position: absolute;
     top: 0;
     left: 0;
@@ -363,18 +349,16 @@ ul {
 }
 
 /* --- Info Producto --- */
-.product-info {
-    flex-grow: 1;
-    /* Empuja el botón hacia abajo */
-    display: flex;
-    flex-direction: column;
-}
-
 .product-card h3 {
-    font-size: 1.4em;
+    font-size: 1.3em;
     margin-bottom: 10px;
     color: var(--secondary-color);
     font-family: serif;
+    /* Altura mínima para alinear títulos de 1 o 2 líneas */
+    min-height: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .product-card .price {
@@ -388,6 +372,8 @@ ul {
     font-size: 0.95em;
     color: #b0b0b0;
     margin-bottom: 25px;
+    flex-grow: 1;
+    /* Esto empuja el botón hacia abajo si hay espacio */
 }
 
 /* --- Controles Swiper --- */
@@ -446,7 +432,7 @@ ul {
     letter-spacing: 1px;
 }
 
-/* === RESPONSIVE DESIGN (Móvil y Tablet) === */
+/* === RESPONSIVE === */
 @media (max-width: 992px) {
     .hero h1 {
         font-size: 3em;
@@ -476,7 +462,6 @@ ul {
         top: 70px;
         left: 0;
         background-color: var(--surface-color);
-        /* Mismo tono que las tarjetas */
         box-shadow: 0 10px 15px rgba(0, 0, 0, 0.8);
         border-top: 1px solid var(--primary-color);
         border-bottom: 2px solid var(--primary-color);
@@ -513,7 +498,6 @@ ul {
     }
 }
 
-/* === AJUSTES FINOS PARA CELULARES (Evita diseño disparejo) === */
 @media (max-width: 480px) {
     .container {
         padding: 0 15px;
@@ -521,17 +505,14 @@ ul {
 
     .logo-text {
         display: none;
-        /* Oculta texto si la pantalla es muy pequeña */
     }
 
     .product-image-wrapper {
         height: 250px;
-        /* Imagen más pequeña para que quepa todo */
     }
 
     .product-card {
         padding: 15px;
-        /* Menos relleno para ganar espacio */
     }
 
     .product-card h3 {
@@ -542,7 +523,7 @@ ul {
         padding: 50px 0;
     }
 
-    /* Forzar ocultamiento de flechas en móvil para limpiar la vista */
+    /* Ocultar flechas en móvil */
     .swiper-button-next,
     .swiper-button-prev {
         display: none;
