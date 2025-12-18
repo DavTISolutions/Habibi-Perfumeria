@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habibi Perfumeria | Lujo y Esencia</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <img src="Img/habibiperfumeria.jpeg" alt="Habibi Perfumeria Logo Gráfico">
+                <span class="logo-text">Habibi Perfumeria</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#hero">Inicio</a>
+                <a href="#about">Acerca de</a>
+                <a href="#products">Nuestros Perfumes</a>
+                <a href="#contact">Contacto</a>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-content sr-item">
+                <h1>Descubre la Esencia de Tu Alma</h1>
+                <p>Encuentra el perfume perfecto que hable de ti, de tu historia, de tu pasión.</p>
+                <a href="#products" class="btn btn-primary">Explorar Colección</a>
+            </div>
+        </section>
+
+        <section id="about" class="about section-spacing">
+            <div class="container sr-item">
+                <h2 class="section-title">Nuestra Historia</h2>
+                <p>Nacimos de la pasión por los aromas que cuentan historias. Habibi Perfumeria es un homenaje a la
+                    tradición árabe de la perfumería, mezclada con la modernidad y el arte olfativo global.</p>
+                <p>Cada botella es el resultado de una búsqueda incansable de la excelencia y la originalidad.</p>
+            </div>
+        </section>
+
+        <section id="products" class="products section-spacing">
+            <div class="container">
+                <h2 class="section-title">Nuestras Joyas Olfativas</h2>
+                <p class="section-subtitle">Una selección curada de los perfumes más exquisitos y distintivos.</p>
+
+                <div class="swiper-container product-carousel">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide product-card">
+                            <div class="product-image-wrapper">
+                                <div class="image-cycler" data-cycle-interval="3000">
+                                    <img src="Img/Productos/producto1.png" alt="Perfume 1" class="active-image">
+                                    <img src="Img/Productos/producto1a.png" alt="Perfume 1 detalle"
+                                        class="inactive-image">
+                                    <img src="Img/Productos/producto1b.png" alt="Perfume 1 caja" class="inactive-image">
+                                </div>
+                            </div>
+                            <h3>LATTAFA MAHARJAN SILVER 100ML EDP</h3>
+                            <p class="price">$1,500MXN</p>
+                            <p class="description">Una fragancia vibrante y femenina que evoca un smoothie de frutos
+                                rojos. Mezcla bayas y cereza con un corazón cremoso de vainilla y flores. Alegre, suave
+                                e ideal para el día a día.</p>
+                            <a href="#" class="btn btn-secondary">Comprar Ahora</a>
+                        </div>
+
+                        <div class="swiper-slide product-card">
+                            <div class="product-image-wrapper">
+                                <div class="image-cycler" data-cycle-interval="3500">
+                                    <img src="Img/Productos/pructo2.png" alt="Perfume 2" class="active-image">
+                                    <img src="Img/Productos/producto2a.png" alt="Perfume 2 detalle"
+                                        class="inactive-image">
+                                    <img src="Img/Productos/producto2b.png" alt="Perfume 2 caja" class="inactive-image">
+                                </div>
+                            </div>
+                            <h3>Al Noble Safeer</h3>
+                            <p class="price">$850MXN</p>
+                            <p class="description">Fragancia unisex de estilo nicho con alma
+                                de bosque verde. Una mezcla distintiva de hierbas silvestres, especias y maderas
+                                ahumadas para un aroma único y aventurero.</p>
+                            <a href="#" class="btn btn-secondary">Comprar Ahora</a>
+                        </div>
+
+                        <div class="swiper-slide product-card">
+                            <div class="product-image-wrapper">
+                                <div class="image-cycler" data-cycle-interval="4000">
+                                    <img src="Img/Productos/producto3.png" alt="Perfume 3" class="active-image">
+                                    <img src="Img/Productos/producto3a.png" alt="Perfume 3 detalle"
+                                        class="inactive-image">
+                                </div>
+                            </div>
+                            <h3>Haya Lataffa Mujer</h3>
+                            <p class="price">$950MXN</p>
+                            <p class="description">La alternativa perfecta a Prada Paradoxe. Una fragancia femenina y
+                                alegre que combina champagne rosado, fresas y flores cremosas para un toque sofisticado.
+                            </p>
+                            <a href="#" class="btn btn-secondary">Comprar Ahora</a>
+                        </div>
+
+                        <div class="swiper-slide product-card">
+                            <div class="product-image-wrapper">
+                                <div class="image-cycler" data-cycle-interval="3000">
+                                    <img src="Img/producto1.png" alt="Perfume 4" class="active-image">
+                                </div>
+                            </div>
+                            <h3>Edición Limitada</h3>
+                            <p class="price">$150.00</p>
+                            <p class="description">El mismo aroma intenso en una presentación de coleccionista.</p>
+                            <a href="#" class="btn btn-secondary">Comprar Ahora</a>
+                        </div>
+
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact section-spacing">
+            <div class="container sr-item">
+                <h2 class="section-title">Contáctanos</h2>
+                <p class="section-subtitle">Estamos aquí para ayudarte a encontrar tu aroma ideal.</p>
+                <div class="contact-links">
+                    <a href="#" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> Chatear por WhatsApp
+                    </a>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Habibi Perfumeria. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

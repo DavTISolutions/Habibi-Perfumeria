@@ -1,0 +1,150 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+    /* ===========================================================
+       1. MENÚ MÓVIL (Hamburguesa)
+    =========================================================== */
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+
+            // Cambiar ícono de hamburguesa a X
+            const icon = menuToggle.querySelector('i');
+            if (icon) {
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+        });
+
+        // Cerrar menú automáticamente al hacer clic en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+    }
+
+    /* ===========================================================
+       2. SCROLL REVEAL (Animaciones de entrada)
+    =========================================================== */
+    if (typeof ScrollReveal !== 'undefined') {
+        const sr = ScrollReveal({
+            origin: 'bottom',
+            distance: '40px',
+            duration: 1000,
+            delay: 100,
+            easing: 'ease-in-out',
+            reset: false // Importante: false para que no parpadee al subir
+        });
+
+        // Aplicar animaciones
+        sr.reveal('.sr-item', { interval: 150 });
+        sr.reveal('.section-title', { delay: 50 });
+        sr.reveal('.hero-content', { delay: 200, distance: '60px' });
+    }
+
+    /* ===========================================================
+       3. SWIPER (CARRUSEL DE PRODUCTOS) - CONFIGURACIÓN MÓVIL
+    =========================================================== */
+    setTimeout(() => {
+        if (typeof Swiper !== 'undefined') {
+            const swiper = new Swiper('.swiper-container', {
+                // Parámetros Generales
+                loop: true,
+                speed: 600,
+                grabCursor: true,
+
+                // [CRÍTICO] Esto asegura que funcione aunque esté dentro de pestañas o animaciones
+                observer: true,
+                observeParents: true,
+
+                // Paginación y Flechas
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+
+                // [CONFIGURACIÓN RESPONSIVA] Aquí está la solución para celulares
+                breakpoints: {
+                    // Celulares (menos de 768px)
+                    0: {
+                        slidesPerView: 1.15, // Muestra un pedacito de la siguiente tarjeta
+                        spaceBetween: 15,    // Menos espacio para que no se vea vacío
+                        centeredSlides: true // Centra la tarjeta activa perfectamente
+                    },
+                    // Tablets
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 25,
+                        centeredSlides: false
+                    },
+                    // Desktop / Laptop
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                        centeredSlides: false
+                    }
+                }
+            });
+        }
+    }, 100); // Pequeño retraso para asegurar carga del DOM
+
+    /* ===========================================================
+       4. IMAGE CYCLER (Rotación automática de fotos del producto)
+    =========================================================== */
+    const cyclers = document.querySelectorAll('.image-cycler');
+
+    cyclers.forEach(cycler => {
+        const images = cycler.querySelectorAll('img');
+
+        // Seguridad: Asegurar que al menos la primera imagen sea visible
+        if (images.length > 0) {
+            let hasActive = false;
+            images.forEach(img => {
+                if (img.classList.contains('active-image')) hasActive = true;
+            });
+            if (!hasActive) images[0].classList.add('active-image');
+        }
+
+        // Solo iniciar el ciclo si hay más de 1 imagen
+        if (images.length > 1) {
+            let currentIndex = 0;
+            // Obtener intervalo personalizado del HTML o usar 3 segs por defecto
+            const intervalTime = parseInt(cycler.getAttribute('data-cycle-interval')) || 3000;
+
+            // Encontrar índice actual
+            images.forEach((img, i) => {
+                if (img.classList.contains('active-image')) currentIndex = i;
+            });
+
+            setInterval(() => {
+                // Ocultar imagen actual
+                images[currentIndex].classList.remove('active-image');
+                images[currentIndex].classList.add('inactive-image');
+
+                // Calcular siguiente índice
+                currentIndex = (currentIndex + 1) % images.length;
+
+                // Mostrar siguiente imagen
+                images[currentIndex].classList.remove('inactive-image');
+                images[currentIndex].classList.add('active-image');
+            }, intervalTime);
+        }
+    });
+});
