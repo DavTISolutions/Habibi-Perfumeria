@@ -143,4 +143,33 @@ document.addEventListener('DOMContentLoaded', () => {
             }, intervalTime);
         }
     });
+
+    /* ===========================================================
+       5. CONFIGURACIÓN DINÁMICA DE WHATSAPP (Nueva Función)
+    =========================================================== */
+    // Configura aquí tu número (código país + número)
+    const whatsappNumber = '9871044515';
+
+    const buyButtons = document.querySelectorAll('.buy-btn');
+
+    buyButtons.forEach(btn => {
+        // Encontrar la tarjeta del producto padre
+        const card = btn.closest('.product-card');
+        if (card) {
+            // Extraer nombre y precio
+            const productName = card.querySelector('h3').innerText.trim();
+            const productPrice = card.querySelector('.price').innerText.trim();
+
+            // Crear mensaje personalizado
+            const message = `Hola Habibi Perfumeria, me interesa comprar: ${productName} con precio de ${productPrice}. ¿Tienen disponibilidad?`;
+
+            // Generar enlace
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+            // Asignar al botón y abrir en nueva pestaña
+            btn.href = whatsappUrl;
+            btn.target = "_blank";
+        }
+    });
+
 });

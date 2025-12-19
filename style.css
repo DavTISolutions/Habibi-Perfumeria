@@ -1,7 +1,7 @@
 /* =========================================
    HABIBI PERFUMERIA - ESTILOS COMPLETOS
    Tema: Lujo (Dorado & Azul Profundo)
-   Corrección: Mobile Layout & Equal Heights & Images
+   Corrección: Mobile Layout & Logo Visible en Móvil
    ========================================= */
 
 /* === VARIABLES DE COLOR === */
@@ -30,6 +30,7 @@ body {
     line-height: 1.6;
     scroll-behavior: smooth;
     overflow-x: hidden;
+    /* Evita scroll horizontal global */
 }
 
 a {
@@ -161,6 +162,8 @@ ul {
     align-items: center;
     gap: 15px;
     text-decoration: none;
+    /* Asegura que el logo no se encoja demasiado en flex */
+    flex-shrink: 0;
 }
 
 .logo img {
@@ -180,6 +183,8 @@ ul {
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-family: serif;
+    white-space: nowrap;
+    /* Evita que el texto se rompa en dos líneas */
 }
 
 /* --- Navegación --- */
@@ -270,12 +275,14 @@ ul {
 .product-carousel {
     padding: 20px 0 60px 0;
     position: relative;
+    /* CORRECCIÓN: Restringir ancho y ocultar desbordamiento */
+    width: 100%;
+    overflow: hidden;
 }
 
 /* --- Estructura Flexible para Alturas Iguales --- */
 .swiper-wrapper {
     align-items: stretch;
-    /* Clave: estira las slides */
 }
 
 .swiper-slide {
@@ -315,7 +322,6 @@ ul {
     border-radius: 4px;
     overflow: hidden;
     background-color: #000;
-    /* Fondo oscuro detrás de la imagen */
     flex-shrink: 0;
 }
 
@@ -329,7 +335,6 @@ ul {
 .image-cycler img {
     width: 100%;
     height: 100%;
-    /* Muestra la imagen completa sin recortar */
     object-fit: contain;
     position: absolute;
     top: 0;
@@ -354,7 +359,6 @@ ul {
     margin-bottom: 10px;
     color: var(--secondary-color);
     font-family: serif;
-    /* Altura mínima para alinear títulos de 1 o 2 líneas */
     min-height: 2.5em;
     display: flex;
     align-items: center;
@@ -373,7 +377,6 @@ ul {
     color: #b0b0b0;
     margin-bottom: 25px;
     flex-grow: 1;
-    /* Esto empuja el botón hacia abajo si hay espacio */
 }
 
 /* --- Controles Swiper --- */
@@ -503,8 +506,23 @@ ul {
         padding: 0 15px;
     }
 
+    /* CAMBIO: Ahora el logo y texto se ajustan en vez de desaparecer */
+    .logo {
+        gap: 8px;
+        /* Menos espacio entre icono y texto */
+    }
+
+    .logo img {
+        height: 35px;
+        /* Imagen un poco más pequeña */
+    }
+
     .logo-text {
-        display: none;
+        display: block;
+        /* Forzamos que se vea */
+        font-size: 0.9rem;
+        /* Texto más pequeño para que quepa */
+        letter-spacing: 0.5px;
     }
 
     .product-image-wrapper {
@@ -523,7 +541,6 @@ ul {
         padding: 50px 0;
     }
 
-    /* Ocultar flechas en móvil */
     .swiper-button-next,
     .swiper-button-prev {
         display: none;
