@@ -7,12 +7,16 @@
     <title>Habibi Perfumeria | Lujo y Esencia</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Great+Vibes&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
 
 <body>
@@ -20,13 +24,13 @@
     <header class="header">
         <nav class="navbar">
             <a href="#" class="logo">
-                <img src="Img/habibiperfumeria.jpeg" alt="Habibi Perfumeria Logo Gráfico">
+                <img src="Img/habibiperfumeria.jpeg" alt="Habibi Perfumeria Logo">
                 <span class="logo-text">Habibi Perfumeria</span>
             </a>
             <div class="nav-links" id="navLinks">
                 <a href="#hero">Inicio</a>
                 <a href="#about">Acerca de</a>
-                <a href="#products">Nuestros Perfumes</a>
+                <a href="#products">Colección</a>
                 <a href="#contact">Contacto</a>
             </div>
             <div class="menu-toggle" id="menuToggle">
@@ -40,7 +44,7 @@
             <div class="hero-content sr-item">
                 <h1>Descubre la Esencia de Tu Alma</h1>
                 <p>Encuentra el perfume perfecto que hable de ti, de tu historia, de tu pasión.</p>
-                <a href="#products" class="btn btn-primary">Explorar Colección</a>
+                <a href="#products" class="btn btn-primary">Ver Colección Exclusiva</a>
             </div>
         </section>
 
@@ -55,173 +59,142 @@
 
         <section id="products" class="products section-spacing">
             <div class="container">
-                <h2 class="section-title">Nuestras Joyas Olfativas</h2>
-                <p class="section-subtitle">Una selección curada de los perfumes más exquisitos y distintivos.</p>
+                <h2 class="section-title">Top Selección</h2>
+                <p class="section-subtitle">Joyas olfativas elegidas para distinguir tu presencia.</p>
 
-                <div class="swiper-container product-carousel">
-                    <div class="swiper-wrapper">
+                <div class="product-showcase">
 
-                        <div class="swiper-slide">
-                            <div class="product-card">
-                                <div class="product-image-wrapper">
-                                    <div class="image-cycler" data-cycle-interval="3000">
-                                        <img src="Img/Productos/producto1a.png" alt="Yum Yum Armaf"
-                                            class="active-image">
-                                        <img src="Img/Productos/producto1b.png" alt="Yum Yum detalle"
-                                            class="inactive-image">
-                                    </div>
-                                </div>
-                                <h3>Yum Yum – Armaf</h3>
-                                <p class="price">$1,800 MXN</p>
-                                <p class="description"><strong>Dulce • Frutal • Cremoso</strong><br>
-                                    En la vibra de Jimmy Choo I Want Choo. Un "smoothie" olfativo que mezcla bayas
-                                    silvestres y cereza jugosa sobre una base suave de vainilla y flores blancas.
-                                    Alegre, moderna y totalmente adictiva.</p>
-                                <a href="#" class="btn btn-secondary buy-btn">Comprar Ahora</a>
-                            </div>
+                    <div class="showcase-item sr-showcase">
+                        <div class="showcase-image">
+                            <img src="Img/Productos/producto1a.png" alt="Yum Yum Armaf">
                         </div>
-
-                        <div class="swiper-slide">
-                            <div class="product-card">
-                                <div class="product-image-wrapper">
-                                    <div class="image-cycler" data-cycle-interval="3500">
-                                        <img src="Img/Productos/producto2a.png" alt="Delight Island Bliss"
-                                            class="active-image">
-                                        <img src="Img/Productos/producto2b.png" alt="Delight Island Bliss detalle"
-                                            class="inactive-image">
-                                    </div>
-                                </div>
-                                <h3>Delight Island Bliss – Armaf</h3>
-                                <p class="price">$1,800 MXN</p>
-                                <p class="description"><strong>Tropical • Cremoso • Radiante</strong><br>
-                                    Similar a Kayali Vacay in a Bottle. Evoca una escapada al paraíso con notas de coco
-                                    cremoso, bayas y flor de azahar. El equilibrio perfecto entre frescura tropical y
-                                    elegancia gourmand.</p>
-                                <a href="#" class="btn btn-secondary buy-btn">Comprar Ahora</a>
-                            </div>
+                        <div class="showcase-text">
+                            <h3>Yum Yum – Armaf</h3>
+                            <span class="olfactory-notes">Dulce • Frutal • Cremoso</span>
+                            <p class="description">
+                                Un "smoothie" olfativo que mezcla bayas silvestres y cereza jugosa sobre una base suave
+                                de vainilla.
+                                Alegre, moderna y totalmente adictiva, evocando la vibra de Jimmy Choo.
+                            </p>
+                            <p class="price">$1,800 MXN</p>
+                            <a href="#" class="btn btn-outline buy-btn">Adquirir esta Joya</a>
                         </div>
-
-                        <div class="swiper-slide">
-                            <div class="product-card">
-                                <div class="product-image-wrapper">
-                                    <div class="image-cycler" data-cycle-interval="3000">
-                                        <img src="Img/Productos/producto3a.png" alt="Noble Blush" class="active-image">
-                                        <img src="Img/Productos/Producto3b.png" alt="Noble Blush detalle"
-                                            class="inactive-image">
-                                    </div>
-                                </div>
-                                <h3>Bade’e Al Oud Noble Blush</h3>
-                                <p class="price">$1,050 MXN</p>
-                                <p class="description"><strong>Cremoso • Floral • Encantador</strong><br>
-                                    Inspirado en Delina La Rosée. Una caricia de "leche de rosas" y merengue dulce sobre
-                                    un fondo aterciopelado de sándalo. Romántico y sofisticado sin llegar a empalagar.
-                                </p>
-                                <a href="#" class="btn btn-secondary buy-btn">Comprar Ahora</a>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="product-card">
-                                <div class="product-image-wrapper">
-                                    <div class="image-cycler" data-cycle-interval="3500">
-                                        <img src="Img/Productos/producto4a.png" alt="Yara Candy" class="active-image">
-                                        <img src="Img/Productos/Producto4b.png" alt="Yara Candy detalle"
-                                            class="inactive-image">
-                                        <img src="Img/Productos/producto4c.png" alt="Yara Candy detalle"
-                                            class="inactive-image">
-                                    </div>
-                                </div>
-                                <h3>Yara Candy – Lattafa</h3>
-                                <p class="price">$990 MXN</p>
-                                <p class="description"><strong>Dulce • Goloso • Cálido</strong><br>
-                                    En el estilo de Pink Sugar. Una explosión vibrante de frutas rojas confitadas y
-                                    caramelo fundido con vainilla. Ideal para quienes buscan un aroma coqueto, juvenil y
-                                    delicioso.</p>
-                                <a href="#" class="btn btn-secondary buy-btn">Comprar Ahora</a>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="product-card">
-                                <div class="product-image-wrapper">
-                                    <div class="image-cycler" data-cycle-interval="3000">
-                                        <img src="Img/Productos/producto5a.png" alt="Qaed Al Fursan"
-                                            class="active-image">
-                                        <img src="Img/Productos/producto5b.png" alt="Qaed Al Fursan detalle"
-                                            class="inactive-image">
-                                    </div>
-                                </div>
-                                <h3>Qaed Al Fursan – Lattafa</h3>
-                                <p class="price">$600 MXN</p>
-                                <p class="description"><strong>Afrutado • Tropical • Amaderado</strong><br>
-                                    En la línea de Creed Aventus. Famoso por su nota realista de piña jugosa y azafrán,
-                                    que evoluciona hacia un fondo de maderas y ámbar. Potente, masculino y muy versátil.
-                                </p>
-                                <a href="#" class="btn btn-secondary buy-btn">Comprar Ahora</a>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="product-card">
-                                <div class="product-image-wrapper">
-                                    <div class="image-cycler" data-cycle-interval="3500">
-                                        <img src="Img/Productos/producto6a.png" alt="Jean Lowe Vibe"
-                                            class="active-image">
-                                        <img src="Img/Productos/producto6b.png" alt="Jean Lowe Vibe detalle"
-                                            class="inactive-image">
-                                    </div>
-                                </div>
-                                <h3>Jean Lowe Vibe – M. Alhambra</h3>
-                                <p class="price">$1,145 MXN</p>
-                                <p class="description"><strong>Cítrico • Energético • Versátil</strong><br>
-                                    Una fragancia vibrante y unisex. Despierta los sentidos con lima, menta y jengibre
-                                    sobre una base limpia de ambroxan. Proyecta energía pura, frescura y confianza
-                                    moderna.</p>
-                                <a href="#" class="btn btn-secondary buy-btn">Comprar Ahora</a>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="product-card">
-                                <div class="product-image-wrapper">
-                                    <div class="image-cycler" data-cycle-interval="3000">
-                                        <img src="Img/Productos/producto7a.png" alt="Hawas for Him"
-                                            class="active-image">
-                                        <img src="Img/Productos/producto7b.png" alt="Hawas for Him detalle"
-                                            class="inactive-image">
-                                    </div>
-                                </div>
-                                <h3>Hawas for Him – Rasasi</h3>
-                                <p class="price">$800 MXN</p>
-                                <p class="description"><strong>Acuático • Fresco • Especiado</strong><br>
-                                    Un aroma best-seller para el calor. Combina la frescura marina y la manzana con un
-                                    toque dulce y sexy de ciruela y canela. Duradero, proyectón y perfecto para no pasar
-                                    desapercibido.</p>
-                                <a href="#" class="btn btn-secondary buy-btn">Comprar Ahora</a>
-                            </div>
-                        </div>
-
                     </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
+
+                    <div class="showcase-item sr-showcase">
+                        <div class="showcase-image">
+                            <img src="Img/Productos/producto2a.png" alt="Delight Island Bliss">
+                        </div>
+                        <div class="showcase-text">
+                            <h3>Delight Island Bliss</h3>
+                            <span class="olfactory-notes">Tropical • Cremoso • Radiante</span>
+                            <p class="description">
+                                Evoca una escapada al paraíso con notas de coco cremoso, bayas y flor de azahar.
+                                El equilibrio perfecto entre frescura tropical y elegancia gourmand.
+                            </p>
+                            <p class="price">$1,800 MXN</p>
+                            <a href="#" class="btn btn-outline buy-btn">Adquirir esta Joya</a>
+                        </div>
+                    </div>
+
+                    <div class="showcase-item sr-showcase">
+                        <div class="showcase-image">
+                            <img src="Img/Productos/producto3a.png" alt="Noble Blush">
+                        </div>
+                        <div class="showcase-text">
+                            <h3>Bade’e Al Oud Noble Blush</h3>
+                            <span class="olfactory-notes">Cremoso • Floral • Encantador</span>
+                            <p class="description">
+                                Una caricia de "leche de rosas" y merengue dulce sobre un fondo aterciopelado de
+                                sándalo.
+                                Romántico y sofisticado sin llegar a empalagar.
+                            </p>
+                            <p class="price">$1,050 MXN</p>
+                            <a href="#" class="btn btn-outline buy-btn">Adquirir esta Joya</a>
+                        </div>
+                    </div>
+
+                    <div class="showcase-item sr-showcase">
+                        <div class="showcase-image">
+                            <img src="Img/Productos/producto4a.png" alt="Yara Candy">
+                        </div>
+                        <div class="showcase-text">
+                            <h3>Yara Candy – Lattafa</h3>
+                            <span class="olfactory-notes">Dulce • Goloso • Cálido</span>
+                            <p class="description">
+                                Una explosión vibrante de frutas rojas confitadas y caramelo fundido con vainilla.
+                                Ideal para quienes buscan un aroma coqueto, juvenil y delicioso.
+                            </p>
+                            <p class="price">$990 MXN</p>
+                            <a href="#" class="btn btn-outline buy-btn">Adquirir esta Joya</a>
+                        </div>
+                    </div>
+
+                    <div class="showcase-item sr-showcase">
+                        <div class="showcase-image">
+                            <img src="Img/Productos/producto5a.png" alt="Qaed Al Fursan">
+                        </div>
+                        <div class="showcase-text">
+                            <h3>Qaed Al Fursan</h3>
+                            <span class="olfactory-notes">Afrutado • Tropical • Amaderado</span>
+                            <p class="description">
+                                Famoso por su nota realista de piña jugosa y azafrán, que evoluciona hacia un fondo de
+                                maderas y ámbar.
+                                Potente, masculino y muy versátil.
+                            </p>
+                            <p class="price">$600 MXN</p>
+                            <a href="#" class="btn btn-outline buy-btn">Adquirir esta Joya</a>
+                        </div>
+                    </div>
+
+                    <div class="showcase-item sr-showcase">
+                        <div class="showcase-image">
+                            <img src="Img/Productos/producto6a.png" alt="Jean Lowe Vibe">
+                        </div>
+                        <div class="showcase-text">
+                            <h3>Jean Lowe Vibe</h3>
+                            <span class="olfactory-notes">Cítrico • Energético • Versátil</span>
+                            <p class="description">
+                                Una fragancia vibrante y unisex. Despierta los sentidos con lima, menta y jengibre sobre
+                                una base limpia de ambroxan.
+                                Proyecta energía pura.
+                            </p>
+                            <p class="price">$1,145 MXN</p>
+                            <a href="#" class="btn btn-outline buy-btn">Adquirir esta Joya</a>
+                        </div>
+                    </div>
+
+                    <div class="showcase-item sr-showcase">
+                        <div class="showcase-image">
+                            <img src="Img/Productos/producto7a.png" alt="Hawas for Him">
+                        </div>
+                        <div class="showcase-text">
+                            <h3>Hawas for Him – Rasasi</h3>
+                            <span class="olfactory-notes">Acuático • Fresco • Especiado</span>
+                            <p class="description">
+                                Combina la frescura marina y la manzana con un toque dulce y sexy de ciruela y canela.
+                                Duradero, proyectón y perfecto para no pasar desapercibido.
+                            </p>
+                            <p class="price">$800 MXN</p>
+                            <a href="#" class="btn btn-outline buy-btn">Adquirir esta Joya</a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
         <section id="contact" class="contact section-spacing">
             <div class="container sr-item">
-                <h2 class="section-title">Contáctanos</h2>
-                <p class="section-subtitle">Estamos aquí para ayudarte a encontrar tu aroma ideal.</p>
+                <h2 class="section-title">Atención Personalizada</h2>
+                <p class="section-subtitle">¿Dudas? Escríbenos directamente.</p>
                 <div class="contact-links">
-                    <a href="https://wa.me/9871044515?text=Hola,%20me%20gustaría%20ponerme%20en%20contacto%20con%20ustedes."
-                        target="_blank" class="btn btn-whatsapp">
-                        <i class="fab fa-whatsapp"></i> Chatear por WhatsApp
+                    <a href="#" class="btn btn-whatsapp whatsapp-main">
+                        <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
                     </a>
                     <div class="social-links">
                         <a href="https://www.instagram.com/habibi_perfumero/"><i class="fab fa-instagram"></i></a>
-                        <a
-                            href="https://www.facebook.com/profile.php?id=61571418854068&mibextid=wwXIfr&rdid=zG0g3V9gKLNB7anz&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BsMpcSu9Y%2F%3Fmibextid%3DwwXIfr#"><i
+                        <a href="https://www.facebook.com/profile.php?id=61571418854068"><i
                                 class="fab fa-facebook-f"></i></a>
                         <a href="mailto:info@perfumeshabibi.com"><i class="fas fa-envelope"></i></a>
                     </div>
@@ -233,7 +206,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Habibi Perfumeria. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Habibi Perfumeria. La excelencia es nuestra firma.</p>
         </div>
     </footer>
 

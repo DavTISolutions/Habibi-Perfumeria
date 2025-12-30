@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* ===========================================================
-       1. MENÚ MÓVIL (Hamburguesa)
+       1. MENÚ MÓVIL
     =========================================================== */
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
@@ -9,21 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-
-            // Cambiar ícono de hamburguesa a X
             const icon = menuToggle.querySelector('i');
             if (icon) {
-                if (navLinks.classList.contains('active')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
             }
         });
 
-        // Cerrar menú automáticamente al hacer clic en un enlace
+        // Cerrar al hacer click en link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
@@ -37,137 +30,62 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ===========================================================
-       2. SCROLL REVEAL (Animaciones de entrada)
+       2. SCROLL REVEAL (Animaciones)
     =========================================================== */
     if (typeof ScrollReveal !== 'undefined') {
         const sr = ScrollReveal({
             origin: 'bottom',
-            distance: '40px',
-            duration: 1000,
+            distance: '50px',
+            duration: 1200,
             delay: 100,
-            easing: 'ease-in-out',
+            easing: 'cubic-bezier(0.5, 0, 0, 1)', // Movimiento más elegante
             reset: false
         });
 
         sr.reveal('.sr-item', { interval: 150 });
         sr.reveal('.section-title', { delay: 50 });
-        sr.reveal('.hero-content', { delay: 200, distance: '60px' });
+
+        // Animación para los productos (Zig Zag)
+        // Alternamos el origen de la animación según si es par o impar
+        document.querySelectorAll('.showcase-item').forEach((item, index) => {
+            let originSide = index % 2 === 0 ? 'left' : 'right';
+
+            // En móvil, siempre desde abajo para no marear
+            if (window.innerWidth < 768) originSide = 'bottom';
+
+            sr.reveal(item, {
+                origin: originSide,
+                distance: '60px',
+                delay: 200,
+                viewFactor: 0.3 // Se anima cuando el 30% del elemento es visible
+            });
+        });
     }
 
     /* ===========================================================
-       3. SWIPER (CARRUSEL DE PRODUCTOS) - CONFIGURACIÓN MÓVIL
+       3. WHATSAPP DINÁMICO
     =========================================================== */
-    setTimeout(() => {
-        if (typeof Swiper !== 'undefined') {
-            const swiper = new Swiper('.swiper-container', {
-                // Parámetros Generales
-                loop: true,
-                speed: 600,
-                grabCursor: true,
-                observer: true,
-                observeParents: true,
-
-                // Paginación y Flechas
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-
-                // Configuración Adaptativa
-                breakpoints: {
-                    // Celulares
-                    0: {
-                        slidesPerView: 1.15,
-                        spaceBetween: 15,
-                        centeredSlides: true
-                    },
-                    // Tablets
-                    768: {
-                        slidesPerView: 2,
-                        spaceBetween: 25,
-                        centeredSlides: false
-                    },
-                    // Desktop / Laptop
-                    1024: {
-                        slidesPerView: 3,
-                        spaceBetween: 30,
-                        centeredSlides: false
-                    }
-                }
-            });
-        }
-    }, 100);
-
-    /* ===========================================================
-       4. IMAGE CYCLER (Rotación automática de fotos del producto)
-    =========================================================== */
-    const cyclers = document.querySelectorAll('.image-cycler');
-
-    cyclers.forEach(cycler => {
-        const images = cycler.querySelectorAll('img');
-
-        // Seguridad: Asegurar que al menos la primera imagen sea visible
-        if (images.length > 0) {
-            let hasActive = false;
-            images.forEach(img => {
-                if (img.classList.contains('active-image')) hasActive = true;
-            });
-            if (!hasActive) images[0].classList.add('active-image');
-        }
-
-        // Solo iniciar el ciclo si hay más de 1 imagen
-        if (images.length > 1) {
-            let currentIndex = 0;
-            // Obtener intervalo personalizado del HTML o usar 3 segs por defecto
-            const intervalTime = parseInt(cycler.getAttribute('data-cycle-interval')) || 3000;
-
-            images.forEach((img, i) => {
-                if (img.classList.contains('active-image')) currentIndex = i;
-            });
-
-            setInterval(() => {
-                // Ocultar imagen actual
-                images[currentIndex].classList.remove('active-image');
-                images[currentIndex].classList.add('inactive-image');
-
-                // Calcular siguiente índice
-                currentIndex = (currentIndex + 1) % images.length;
-
-                // Mostrar siguiente imagen
-                images[currentIndex].classList.remove('inactive-image');
-                images[currentIndex].classList.add('active-image');
-            }, intervalTime);
-        }
-    });
-
-    /* ===========================================================
-       5. CONFIGURACIÓN DINÁMICA DE WHATSAPP (Nueva Función)
-    =========================================================== */
-    // Configura aquí tu número (código país + número)
     const whatsappNumber = '9871044515';
-
     const buyButtons = document.querySelectorAll('.buy-btn');
+    const mainWhatsappBtn = document.querySelector('.whatsapp-main');
 
+    // Botón general de contacto
+    if (mainWhatsappBtn) {
+        mainWhatsappBtn.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hola Habibi Perfumeria, me gustaría recibir asesoría personalizada.")}`;
+    }
+
+    // Botones de cada producto
     buyButtons.forEach(btn => {
-        // Encontrar la tarjeta del producto padre
-        const card = btn.closest('.product-card');
-        if (card) {
-            // Extraer nombre y precio
-            const productName = card.querySelector('h3').innerText.trim();
-            const productPrice = card.querySelector('.price').innerText.trim();
+        // Buscamos el contenedor padre .showcase-text
+        const textContainer = btn.closest('.showcase-text');
 
-            // Crear mensaje personalizado
-            const message = `Hola Habibi Perfumeria, me interesa comprar: ${productName} con precio de ${productPrice}. ¿Tienen disponibilidad?`;
+        if (textContainer) {
+            const productName = textContainer.querySelector('h3').innerText.trim();
+            const productPrice = textContainer.querySelector('.price').innerText.trim();
 
-            // Generar enlace
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            const message = `Hola, estoy cautivado/a por el perfume *${productName}* (${productPrice}). ¿Podrían darme más detalles para adquirirlo?`;
 
-            // Asignar al botón y abrir en nueva pestaña
-            btn.href = whatsappUrl;
+            btn.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
             btn.target = "_blank";
         }
     });

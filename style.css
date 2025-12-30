@@ -1,19 +1,29 @@
 /* =========================================
-   HABIBI PERFUMERIA - ESTILOS COMPLETOS
-   Tema: Lujo (Dorado & Azul Profundo)
-   Corrección: Mobile Layout & Logo Visible en Móvil
+   HABIBI PERFUMERIA - ESTILOS ELEGANTES
+   Tema: Lujo Editorial (Zig-Zag)
    ========================================= */
 
 /* === VARIABLES DE COLOR === */
 :root {
     --primary-color: #CCA861;
-    --secondary-color: #E6D1A3;
-    --background-color: #041324;
-    --surface-color: #0F1829;
-    --text-color: #FFFFFF;
+    /* Dorado */
+    --secondary-color: #F4E4BC;
+    /* Crema dorado */
+    --background-color: #050e1a;
+    /* Azul muy oscuro casi negro */
+    --surface-color: #0b1626;
+    /* Azul profundo para tarjetas/secciones */
+    --text-color: #e0e0e0;
+    --accent-text: #fff;
     --border-color: #CCA861;
     --whatsapp-color: #25d366;
-    --transition-speed: 0.3s;
+    --transition-speed: 0.4s;
+
+    /* Tipografía */
+    --font-main: 'Playfair Display', serif;
+    /* Fuente elegante */
+    --font-script: 'Great Vibes', cursive;
+    /* Fuente firma */
 }
 
 /* === RESET Y BASE === */
@@ -24,23 +34,18 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: var(--font-main);
+    /* Cambiado a Playfair por defecto para elegancia */
     background-color: var(--background-color);
     color: var(--text-color);
-    line-height: 1.6;
-    scroll-behavior: smooth;
+    line-height: 1.8;
     overflow-x: hidden;
-    /* Evita scroll horizontal global */
 }
 
 a {
     text-decoration: none;
     color: inherit;
-    transition: color var(--transition-speed);
-}
-
-a:hover {
-    color: var(--secondary-color);
+    transition: all var(--transition-speed);
 }
 
 ul {
@@ -49,77 +54,79 @@ ul {
 
 /* === UTILIDADES === */
 .container {
-    max-width: 1200px;
+    max-width: 1100px;
+    /* Un poco más estrecho para lectura elegante */
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 25px;
 }
 
 .section-spacing {
-    padding: 80px 0;
+    padding: 100px 0;
 }
 
 .section-title {
-    font-size: 2.5em;
+    font-family: var(--font-main);
+    font-size: 3em;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     color: var(--primary-color);
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    font-weight: 400;
 }
 
 .section-subtitle {
-    font-size: 1.2em;
+    font-family: var(--font-main);
+    font-size: 1.4em;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 80px;
     color: var(--secondary-color);
     font-style: italic;
+    font-weight: 400;
 }
 
 /* === BOTONES === */
 .btn {
     display: inline-block;
-    padding: 12px 30px;
-    border: 2px solid var(--primary-color);
-    border-radius: 4px;
+    padding: 14px 35px;
+    border: 1px solid var(--primary-color);
     transition: all var(--transition-speed);
     text-transform: uppercase;
-    font-weight: bold;
+    font-size: 0.85em;
+    letter-spacing: 2px;
     cursor: pointer;
-    font-size: 0.9em;
-    letter-spacing: 1px;
+    font-style: normal;
+    /* Botones en texto normal para legibilidad */
+    font-weight: 700;
 }
 
 .btn-primary {
     background-color: var(--primary-color);
-    color: var(--background-color);
+    color: #000;
 }
 
 .btn-primary:hover {
-    background-color: var(--secondary-color);
-    border-color: var(--secondary-color);
-    transform: translateY(-3px);
-    color: var(--background-color);
-    box-shadow: 0 5px 15px rgba(204, 168, 97, 0.3);
-}
-
-.btn-secondary {
     background-color: transparent;
     color: var(--primary-color);
-    /* Alineación al fondo de la card */
-    margin-top: auto;
 }
 
-.btn-secondary:hover {
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-outline:hover {
     background-color: var(--primary-color);
-    color: var(--background-color);
-    transform: translateY(-3px);
+    color: #000;
+    box-shadow: 0 0 15px rgba(204, 168, 97, 0.4);
 }
 
 .btn-whatsapp {
     background-color: var(--whatsapp-color);
     border-color: var(--whatsapp-color);
     color: white;
-    font-size: 1.1em;
+    font-weight: 600;
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -127,82 +134,62 @@ ul {
 
 .btn-whatsapp:hover {
     background-color: #128c7e;
-    border-color: #128c7e;
     transform: translateY(-3px);
 }
 
-/* === ANIMACIONES === */
-.sr-item {
-    visibility: visible;
-}
-
-/* === HEADER Y NAVBAR === */
+/* === HEADER === */
 .header {
-    background-color: var(--background-color);
+    background-color: rgba(2, 19, 38, 0.957);
     position: fixed;
     width: 100%;
     top: 0;
-    left: 0;
     z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-    border-bottom: 1px solid rgba(204, 168, 97, 0.3);
+    border-bottom: 1px solid rgba(204, 168, 97, 0.2);
+    backdrop-filter: blur(5px);
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
-    padding: 0 30px;
+    height: 90px;
+    padding: 0 40px;
 }
 
-/* --- Logo --- */
 .logo {
     display: flex;
     align-items: center;
     gap: 15px;
-    text-decoration: none;
-    /* Asegura que el logo no se encoja demasiado en flex */
-    flex-shrink: 0;
 }
 
 .logo img {
-    height: 55px;
+    height: 60px;
     width: auto;
-    transition: transform 0.3s ease;
-}
-
-.logo:hover img {
-    transform: scale(1.05);
 }
 
 .logo-text {
-    font-size: 1.5em;
-    font-weight: 700;
+    font-family: var(--font-main);
+    font-size: 1.4em;
     color: var(--primary-color);
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-family: serif;
-    white-space: nowrap;
-    /* Evita que el texto se rompa en dos líneas */
+    letter-spacing: 2px;
 }
 
-/* --- Navegación --- */
 .nav-links a {
-    margin-left: 25px;
-    font-size: 0.95em;
+    margin-left: 30px;
+    font-size: 0.9em;
     color: var(--text-color);
-    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
     position: relative;
+    font-style: normal;
 }
 
 .nav-links a::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 2px;
+    height: 1px;
     bottom: -5px;
     left: 0;
     background-color: var(--primary-color);
@@ -215,186 +202,154 @@ ul {
 
 .menu-toggle {
     display: none;
-    font-size: 1.8em;
-    cursor: pointer;
+    font-size: 1.5em;
     color: var(--primary-color);
+    cursor: pointer;
 }
 
-/* === SECCIÓN HERO === */
+/* === HERO === */
 .hero {
-    background: linear-gradient(rgba(5, 10, 20, 0.75), rgba(5, 10, 20, 0.6)), url('Img/fondo.png') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Img/fondo.png') center/cover;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding-top: 80px;
-}
-
-.hero-content {
-    max-width: 800px;
-    padding: 20px;
-    z-index: 2;
+    padding: 0 20px;
 }
 
 .hero h1 {
-    font-size: 3.5em;
+    font-size: 4.5em;
     margin-bottom: 20px;
     color: var(--primary-color);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
-    font-family: serif;
+    font-style: italic;
+    font-weight: 400;
 }
 
 .hero p {
-    font-size: 1.4em;
-    margin-bottom: 35px;
-    color: #e0e0e0;
-    font-weight: 300;
+    font-size: 1.5em;
+    margin-bottom: 40px;
+    font-style: italic;
+    color: #fff;
 }
 
-/* === SECCIÓN ACERCA DE === */
+/* === ABOUT === */
 .about {
     background-color: var(--surface-color);
     text-align: center;
-    border-top: 1px solid rgba(204, 168, 97, 0.1);
 }
 
 .about p {
+    font-size: 1.2em;
     max-width: 800px;
     margin: 20px auto;
-    font-size: 1.1em;
-    color: #c0c0c0;
-    line-height: 1.8;
+    font-style: italic;
+    color: #ccc;
 }
 
-/* === SECCIÓN PRODUCTOS === */
-.products {
-    background-color: var(--background-color);
-}
-
-.product-carousel {
-    padding: 20px 0 60px 0;
-    position: relative;
-    /* CORRECCIÓN: Restringir ancho y ocultar desbordamiento */
-    width: 100%;
-    overflow: hidden;
-}
-
-/* --- Estructura Flexible para Alturas Iguales --- */
-.swiper-wrapper {
-    align-items: stretch;
-}
-
-.swiper-slide {
-    height: auto;
-    display: flex;
-    justify-content: center;
-}
-
-.product-card {
-    background-color: var(--surface-color);
-    border: 1px solid rgba(204, 168, 97, 0.3);
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-
-    /* Ocupar toda la altura y distribuir contenido */
-    width: 100%;
-    height: 100%;
+/* === PRODUCT SHOWCASE (NUEVO DISEÑO) === */
+.product-showcase {
     display: flex;
     flex-direction: column;
-
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    gap: 120px;
+    /* Espacio amplio entre productos */
 }
 
-.product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(204, 168, 97, 0.15);
-    border-color: var(--primary-color);
-}
-
-.product-image-wrapper {
-    width: 100%;
-    height: 320px;
-    margin-bottom: 20px;
-    position: relative;
-    border-radius: 4px;
-    overflow: hidden;
-    background-color: #000;
-    flex-shrink: 0;
-}
-
-/* --- Image Cycler & Ajuste de Imagen --- */
-.image-cycler {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.image-cycler img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: opacity 1.2s ease-in-out;
-}
-
-.image-cycler img.active-image {
-    opacity: 1;
-    z-index: 2;
-}
-
-.image-cycler img.inactive-image {
-    opacity: 0;
-    z-index: 1;
-}
-
-/* --- Info Producto --- */
-.product-card h3 {
-    font-size: 1.3em;
-    margin-bottom: 10px;
-    color: var(--secondary-color);
-    font-family: serif;
-    min-height: 2.5em;
+.showcase-item {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    /* Borde sutil inferior para separar */
+    padding-bottom: 80px;
+    border-bottom: 1px solid rgba(204, 168, 97, 0.1);
+}
+
+.showcase-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Alternar orden: Texto - Imagen, Imagen - Texto */
+.showcase-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* -- Imagen del Showcase -- */
+.showcase-image {
+    flex: 1;
+    position: relative;
+    height: 500px;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+    display: flex;
     justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(204, 168, 97, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
 }
 
-.product-card .price {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: var(--text-color);
-    margin-bottom: 15px;
+.showcase-image img {
+    max-height: 85%;
+    max-width: 85%;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
+    transition: transform 0.5s ease;
 }
 
-.product-card .description {
-    font-size: 0.95em;
-    color: #b0b0b0;
+.showcase-item:hover .showcase-image img {
+    transform: scale(1.05) rotate(2deg);
+}
+
+/* -- Texto del Showcase -- */
+.showcase-text {
+    flex: 1;
+    text-align: left;
+    padding: 20px;
+}
+
+.showcase-item:nth-child(even) .showcase-text {
+    text-align: right;
+    /* Alinear a la derecha en los pares */
+}
+
+.showcase-text h3 {
+    font-family: var(--font-main);
+    font-size: 2.5em;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.olfactory-notes {
+    display: block;
+    font-family: var(--font-main);
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 2px;
     margin-bottom: 25px;
-    flex-grow: 1;
+    font-style: normal;
 }
 
-/* --- Controles Swiper --- */
-.swiper-button-next,
-.swiper-button-prev {
-    color: var(--primary-color) !important;
+.showcase-text .description {
+    font-size: 1.15em;
+    color: #bbb;
+    margin-bottom: 30px;
+    font-style: italic;
+    line-height: 1.9;
 }
 
-.swiper-pagination-bullet {
-    background: #555 !important;
-    opacity: 1;
+.showcase-text .price {
+    font-size: 1.8em;
+    color: #fff;
+    margin-bottom: 35px;
+    font-family: var(--font-main);
+    font-weight: 700;
 }
 
-.swiper-pagination-bullet-active {
-    background: var(--primary-color) !important;
-}
-
-/* === SECCIÓN CONTACTO === */
+/* === CONTACT & FOOTER === */
 .contact {
     background-color: var(--surface-color);
     text-align: center;
@@ -405,70 +360,54 @@ ul {
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    margin-top: 40px;
 }
 
 .social-links {
     display: flex;
-    gap: 30px;
+    gap: 20px;
+    font-size: 1.8em;
 }
 
-.social-links a {
-    color: var(--primary-color);
-    font-size: 2.2em;
-    transition: transform 0.3s, color 0.3s;
-}
-
-.social-links a:hover {
-    color: var(--secondary-color);
-    transform: scale(1.2);
-}
-
-/* === FOOTER === */
 .footer {
-    background-color: #000000;
-    color: var(--primary-color);
-    padding: 30px 0;
+    background-color: #000;
+    padding: 40px 0;
     text-align: center;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid rgba(204, 168, 97, 0.3);
     font-size: 0.9em;
     letter-spacing: 1px;
+    color: #888;
 }
 
 /* === RESPONSIVE === */
 @media (max-width: 992px) {
+    .showcase-image {
+        height: 400px;
+    }
+
     .hero h1 {
-        font-size: 3em;
+        font-size: 3.5em;
     }
 }
 
 @media (max-width: 768px) {
     .navbar {
-        height: 70px;
         padding: 0 20px;
-    }
-
-    .logo img {
-        height: 40px;
+        height: 70px;
     }
 
     .logo-text {
-        font-size: 1.2em;
+        font-size: 1em;
     }
 
-    /* Menú Móvil */
     .nav-links {
         display: none;
-        flex-direction: column;
-        width: 100%;
         position: absolute;
         top: 70px;
         left: 0;
-        background-color: var(--surface-color);
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.8);
-        border-top: 1px solid var(--primary-color);
-        border-bottom: 2px solid var(--primary-color);
-        padding: 20px 0;
+        width: 100%;
+        background-color: var(--background-color);
+        flex-direction: column;
+        border-bottom: 1px solid var(--primary-color);
     }
 
     .nav-links.active {
@@ -477,72 +416,42 @@ ul {
 
     .nav-links a {
         margin: 0;
-        padding: 15px 0;
+        padding: 20px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         text-align: center;
-        width: 100%;
-        display: block;
-    }
-
-    .nav-links a:last-child {
-        border-bottom: none;
     }
 
     .menu-toggle {
         display: block;
     }
 
+    /* Colapsar el Zig-Zag en móvil */
+    .showcase-item,
+    .showcase-item:nth-child(even) {
+        flex-direction: column;
+        /* Imagen arriba, texto abajo siempre */
+        gap: 30px;
+        text-align: center !important;
+        /* Forzar centro */
+    }
+
+    .showcase-text,
+    .showcase-item:nth-child(even) .showcase-text {
+        text-align: center;
+        /* Texto centrado en móvil */
+        padding: 0;
+    }
+
+    .showcase-image {
+        width: 100%;
+        height: 350px;
+    }
+
     .hero h1 {
+        font-size: 2.8em;
+    }
+
+    .section-title {
         font-size: 2.2em;
-    }
-
-    .hero p {
-        font-size: 1.1em;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 0 15px;
-    }
-
-    /* CAMBIO: Ahora el logo y texto se ajustan en vez de desaparecer */
-    .logo {
-        gap: 8px;
-        /* Menos espacio entre icono y texto */
-    }
-
-    .logo img {
-        height: 35px;
-        /* Imagen un poco más pequeña */
-    }
-
-    .logo-text {
-        display: block;
-        /* Forzamos que se vea */
-        font-size: 0.9rem;
-        /* Texto más pequeño para que quepa */
-        letter-spacing: 0.5px;
-    }
-
-    .product-image-wrapper {
-        height: 250px;
-    }
-
-    .product-card {
-        padding: 15px;
-    }
-
-    .product-card h3 {
-        font-size: 1.2em;
-    }
-
-    .section-spacing {
-        padding: 50px 0;
-    }
-
-    .swiper-button-next,
-    .swiper-button-prev {
-        display: none;
     }
 }
